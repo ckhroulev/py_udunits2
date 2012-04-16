@@ -231,7 +231,7 @@ cdef class Converter:
         else:
             if 'log' in kwargs:
                 self._c_converter = u.cv_get_log(float(kwargs['log']))
-            if 'pow' in kwargs:
+            elif 'pow' in kwargs:
                 self._c_converter = u.cv_get_pow(float(kwargs['pow']))
             elif 'inverse' in kwargs and kwargs['inverse']:
                 self._c_converter = u.cv_get_inverse()
@@ -259,12 +259,12 @@ cdef class Converter:
     def __call__(self, x):
         if isinstance(x, numbers.Number):
             return self._convert(x)
-        elif isinstance(x, np.ndarray) and x.dtype == np.float64:
-            return self._convert_doubles(x.reshape(x.size)).reshape(x.shape)
+        # use cv_convert_floats for speed (if possible), convert everything else into doubles
         elif isinstance(x, np.ndarray) and x.dtype == np.float32:
             return self._convert_floats(x.reshape(x.size)).reshape(x.shape)
-        elif isinstance(x, list):
-            return map(self, x)
+        else:
+            tmp = np.asarray(x, dtype=np.float64)
+            return self._convert_doubles(tmp.reshape(tmp.size)).reshape(tmp.shape)
 
 # Helper functions:
 def encode_date(int year, int month, int day):

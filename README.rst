@@ -27,21 +27,20 @@ Converting data
 
 The ``Converter`` class is used to convert data between different units
 
-    >>> converter = Converter((Unit(sys, "Celsius"), Unit(sys, "Kelvin")))
+    >>> converter = Converter((Unit(sys, "Celsius"), Unit(sys, "Fahrenheit")))
     >>> converter
-    <unit converter 'y = x + 273.15'>
+    <unit converter 'y = 1.8*x + 32'>
     >>> converter(0.0)
-    273.15
+    31.999999999999886
 
-It is also possible to process lists and NumPy arrays (``float32`` and ``float64``).
+It is also possible to process NumPy arrays (``float32`` and ``float64``), as well as anything ``numpy.asarray`` can process.
+    >>> from numpy import zeros
+    >>> a = zeros((3,3), dtype=np.int) + 10
+    >>> converter(a)
+    array([[ 50.,  50.,  50.],
+           [ 50.,  50.,  50.],
+           [ 50.,  50.,  50.]])
 
     >>> converter([0, 10, 20, 30])
-    [273.15, 283.15, 293.15, 303.15]
-
-    >>> from numpy import zeros
-    >>> a = zeros((3,3)) + 10
-    >>> converter(a)
-    array([[ 283.15,  283.15,  283.15],
-           [ 283.15,  283.15,  283.15],
-           [ 283.15,  283.15,  283.15]])
+    array([ 32.,  50.,  68.,  86.])
 
