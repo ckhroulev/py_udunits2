@@ -29,7 +29,7 @@ if prefix == "":
 
 
 libraries=['udunits2']
-extra_compile_args=["-Wall", "-Wno-self-assign", "-Wno-unused-function"]
+extra_compile_args=["-w"]               # inhibit all warnings
 
 # Define the extension
 extension = Extension("udunits2",
