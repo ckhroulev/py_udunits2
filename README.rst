@@ -44,3 +44,11 @@ It is also possible to process NumPy arrays (``float32`` and ``float64``), as we
     >>> converter([0, 10, 20, 30])
     array([ 32.,  50.,  68.,  86.])
 
+
+Testing this module
+----------------
+
+You can check if this module does what is promised above by running
+
+``python -m doctest -v README.rst``
+
