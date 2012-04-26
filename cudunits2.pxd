@@ -1,6 +1,6 @@
 # -*- mode: cython -*-
 
-cdef extern from "udunits2/udunits2.h":
+cdef extern from "udunits2.h":
     # fake va_list:
     ctypedef struct va_list:
         pass
@@ -141,7 +141,7 @@ cdef extern from "udunits2/udunits2.h":
     ut_status ut_get_status()
 
 
-cdef extern from "udunits2/converter.h":
+cdef extern from "converter.h":
     cv_converter* cv_get_trivial()
 
     cv_converter* cv_get_inverse()

@@ -1,8 +1,8 @@
 The ``udunits2`` module
-======================
+=======================
 
 Creating and manipulating units
--------------------------
+-------------------------------
 
 First, import the module:
 
@@ -23,7 +23,7 @@ Now we're ready to create some units.
     <units of 'm-2.kg.s-1'>
 
 Converting data
--------------
+---------------
 
 The ``Converter`` class is used to convert data between different units
 
