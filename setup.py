@@ -48,7 +48,7 @@ extra_compile_args=["-w"]               # inhibit all warnings
 # Define the extension
 extension = Extension("udunits2",
                       sources=["udunits2.pyx"],
-                      include_dirs=[numpy.get_include(), 'src', udunits2_include],
+                      include_dirs=[numpy.get_include(), udunits2_include],
                       library_dirs=[udunits2_lib],
                       libraries=libraries,
                       extra_compile_args=extra_compile_args,
