@@ -33,8 +33,8 @@ The ``Converter`` class is used to convert data between different units
     >>> converter(0.0)
     31.999999999999886
 
-It is also possible to process NumPy arrays (``float32`` and ``float64``), as well as anything ``numpy.asarray`` can handle.
-    
+It is also possible to process NumPy arrays (``float32`` and ``float64``), as well as anything ``numpy.asarray`` can process.
+
     >>> from numpy import zeros
     >>> a = zeros((3,3), dtype=np.int) + 10
     >>> converter(a)

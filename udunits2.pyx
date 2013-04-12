@@ -112,6 +112,8 @@ cdef class Unit:
     def __cinit__(self, System sys, spec=""):
         if sys is not None:
             self._c_unit = u.ut_parse(sys._c_system, spec, u.UT_ASCII)
+            if self._c_unit == NULL:
+                raise ValueError("invalid unit string: '%s'" % spec)
         else:
             self._c_unit = NULL         # allow creating an empty Unit
 
