@@ -307,4 +307,4 @@ def root(Unit u1, int power):
 
 def are_convertible(Unit u1, Unit u2):
     "Returns True if u1 and u2 are convertible."
-    return u.ut_are_convertible(u1._c_unit, u2._c_unit) > 0
+    return u.ut_are_convertible(u1._c_unit, u2._c_unit) != 0
