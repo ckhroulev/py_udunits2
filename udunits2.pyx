@@ -61,10 +61,12 @@ cdef class System:
         return tmp
 
     def add_name_prefix(self, prefix, value):
-        errcode = u.ut_add_name_prefix(self._c_system, prefix, value)
+        # FIXME: add error handling
+        u.ut_add_name_prefix(self._c_system, prefix, value)
 
     def add_symbol_prefix(self, prefix, value):
-        errcode = u.ut_add_symbol_prefix(self._c_system, prefix, value)
+        # FIXME: add error handling
+        u.ut_add_symbol_prefix(self._c_system, prefix, value)
 
     def new_base_unit(self):
         tmp = Unit(None)
