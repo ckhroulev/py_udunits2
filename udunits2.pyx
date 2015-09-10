@@ -230,6 +230,8 @@ cdef class Converter:
 
             if isinstance(arg1, Unit) and isinstance(arg2, Unit):
                 self._c_converter = self._get_converter(arg1, arg2)
+                if self._c_converter == NULL:
+                    raise Exception("cannot convert from %s to %s" % (arg1, arg2))
             elif isinstance(arg1, Converter) and isinstance(arg2, Converter):
                 self._c_converter = self._combine(arg1, arg2)
         else:
