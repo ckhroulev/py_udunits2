@@ -17,7 +17,7 @@ cdef extern from "udunits2.h":
 
     ctypedef int (*ut_error_message_handler)(char* fmt, va_list args)
 
-    cdef enum ut_status:
+    ctypedef enum ut_status:
         UT_SUCCESS = 0
         UT_BAD_ARG
         UT_EXISTS
@@ -35,7 +35,7 @@ cdef extern from "udunits2.h":
         UT_OPEN_DEFAULT
         UT_PARSE
 
-    cdef enum ut_encoding:
+    ctypedef enum ut_encoding:
         UT_ASCII = 0
         UT_ISO_8859_1 = 1
         UT_LATIN1 = UT_ISO_8859_1
