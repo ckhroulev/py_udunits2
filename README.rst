@@ -1,6 +1,9 @@
 The ``udunits2`` module
 =======================
 
+.. note::
+   This module is not maintaned. Use https://github.com/hgrecco/pint/ or https://github.com/SciTools/cf-units/ instead.
+
 Creating and manipulating units
 -------------------------------
 
